@@ -1,5 +1,4 @@
 ---
-
 collections:
 
-- theforeman.foreman
+- name: theforeman.foreman
