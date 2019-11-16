@@ -6,6 +6,7 @@
   tasks:
   - name: create foreman location
     theforeman.foreman.foreman_location:
+      validate_certs: false
       username: "{{ sat_user }}"
       password: "{{ sat_password }}"
       server_url: https://{{ sat_url }}
