@@ -5,7 +5,7 @@
   gather_facts: false
   tasks:
   - name: create foreman location
-    foreman_location:
+    theforeman.foreman.foreman_location:
       username: "{{ sat_user }}"
       password: "{{ sat_password }}"
       server_url: https://{{ sat_url }}
