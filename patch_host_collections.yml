@@ -1,0 +1,16 @@
+---
+
+- name: work out date
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+  - name: find date
+    setup:
+
+- hosts: "foreman_hostcollection_{{ hostvars['localhost'].ansible_date_time.weekday }}_{{ hostvars['localhost'].ansible_date_time.hour }}"
+  tasks:
+  - name: patch
+    yum: 
+      name: '*'
+      state: latest
