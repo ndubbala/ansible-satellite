@@ -8,7 +8,7 @@
   - name: find date
     setup:
 
-- hosts: "foreman_hostcollection_{{ hostvars['localhost'].ansible_date_time.weekday }}_{{ hostvars['localhost'].ansible_date_time.hour }}"
+- hosts: "foreman_hostcollection_{{ hostvars['localhost'].ansible_date_time.weekday | lower }}_{{ hostvars['localhost'].ansible_date_time.hour }}"
   tasks:
   - name: patch
     yum: 
