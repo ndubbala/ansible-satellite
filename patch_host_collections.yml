@@ -1,14 +1,13 @@
 ---
 
-- name: work out date
+- name: gather facts to find date
   hosts: localhost
   connection: local
-  gather_facts: false
-  tasks:
-  - name: find date
-    setup:
+  gather_facts: true
+  tasks: []
 
-- hosts: "foreman_hostcollection_{{ hostvars['localhost'].ansible_date_time.weekday | lower }}_{{ hostvars['localhost'].ansible_date_time.hour }}"
+- name: patch hosts in this patch window
+  hosts: "foreman_hostcollection_{{ hostvars['localhost'].ansible_date_time.weekday | lower }}_{{ hostvars['localhost'].ansible_date_time.hour }}"
   tasks:
   - name: patch
     yum: 
