@@ -7,7 +7,6 @@
     file:
       path: /tmp/sat6_patches
       state: absent
-      recurse: true 
     delegate_to: localhost
     run_once: true
 
