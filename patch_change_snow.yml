@@ -1,0 +1,41 @@
+---
+
+- hosts: all
+  gather_facts: false
+  tasks:
+  - name: create temp dir
+    file:
+      state: directory
+      path: /tmp/sat6_patches
+    delegate_to: localhost
+    run_once: true
+
+  - name: write out patch details
+    template:
+      src: snow_ticket.j2
+      dest: /tmp/sat6_patches/{{ inventory_hostname }}_patches.txt
+    delegate_to: localhost
+    
+  - name: assemble ticket
+    assemble: 
+      src: /tmp/sat6_patches
+      dest: /tmp/snow_details.txt
+    delegate_to: localhost
+    run_once: true
+
+  - name: log change in servicenow
+    snow_record:
+      username: "{{ snow_user }}"
+      password: "{{ snow_password }}"
+      instance: "{{ snow_instance }}"
+      state: present
+      table: change
+      data:
+        type: Normal
+        short_description: "RHEL patching"
+        description: "{{lookup('file', '/tmp/snow_details.txt')}}"
+        severity: 3
+        priority: 2
+    delegate_to: localhost
+    run_once: true
+
