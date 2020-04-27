@@ -29,7 +29,7 @@
       password: "{{ snow_password }}"
       instance: "{{ snow_instance }}"
       state: present
-      table: change
+      table: change_request
       data:
         type: Normal
         short_description: "RHEL patching"
