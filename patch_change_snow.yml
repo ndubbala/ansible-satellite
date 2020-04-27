@@ -55,6 +55,6 @@
     register: snow_change
 
   - name: schedule patching job in tower
-    shell: "awx --conf.host https://localhost --conf.username admin --conf.password {{ tower_password }} -k schedules  create --name 'patching {{ snow_state.record.number }}' --unified_job_template 33 --rrule 'DTSTART;TZID=Europe/London:20200428T192800 RRULE:FREQ=DAILY;INTERVAL=1;COUNT=1' --extra_data '{ "snapshot_description": "patching {{ snow_state.record.number }}", "concurrent_hosts": "100%", "snow_number": "{{ snow_state.record.number }}" }'"
+    shell: "awx --conf.host https://localhost --conf.username admin --conf.password {{ lookup("env", "TOWER_PASSWORD") }} -k schedules  create --name 'patching {{ snow_state.record.number }}' --unified_job_template 33 --rrule 'DTSTART;TZID=Europe/London:20200428T192800 RRULE:FREQ=DAILY;INTERVAL=1;COUNT=1' --extra_data '{ "snapshot_description": "patching {{ snow_state.record.number }}", "concurrent_hosts": "100%", "snow_number": "{{ snow_state.record.number }}" }'"
     delegate_to: localhost
     run_once: true
