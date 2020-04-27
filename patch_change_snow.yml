@@ -31,7 +31,6 @@
       state: present
       table: change_request
       data:
-        #type: Normal
         short_description: "RHEL patching"
         description: "{{lookup('file', '/tmp/snow_details.txt')}}"
         severity: 3
