@@ -12,7 +12,7 @@
 
   - name: write out patch details
     template:
-      src: snow_ticket.j2
+      src: templates/snow_ticket.j2
       dest: /tmp/sat6_patches/{{ inventory_hostname }}_patches.txt
     delegate_to: localhost
     
