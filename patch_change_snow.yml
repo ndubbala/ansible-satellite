@@ -24,6 +24,11 @@
     delegate_to: localhost
     run_once: true
 
+  - name: get patch details
+    shell: yum updateinfo
+    changed: false
+    register: updateinfo
+    
   - name: write out patch details
     template:
       src: templates/snow_ticket.j2
