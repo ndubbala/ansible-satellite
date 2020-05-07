@@ -26,7 +26,7 @@
 
   - name: get patch details
     shell: yum updateinfo
-    changed: false
+    changed_when: false
     register: updateinfo
     
   - name: write out patch details
