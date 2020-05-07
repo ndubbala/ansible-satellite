@@ -1,0 +1,4 @@
+# foreman.yml
+plugin: foreman
+validate_certs: False
+want_params: True
