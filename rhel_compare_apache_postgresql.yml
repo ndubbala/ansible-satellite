@@ -1,0 +1,10 @@
+---
+
+- hosts: all
+  tasks:
+  - name: install httpd and postgresql
+    yum:
+      name: 
+        - httpd
+        - postgresql
+      state: installed
