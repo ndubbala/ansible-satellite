@@ -1,4 +1,4 @@
 ---
 collections:
 
-- name: theforeman.foreman
+- name: redhat.satellite
