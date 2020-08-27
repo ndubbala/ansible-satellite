@@ -1415,6 +1415,3 @@
         owner: root
         group: root
         mode: 0644
-
-    - name: generate scap report
-      shell: /usr/bin/foreman_scap_client 2
