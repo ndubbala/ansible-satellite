@@ -2,4 +2,3 @@
 plugin: foreman
 validate_certs: False
 want_params: True
-host_filters: 'foreman_content_facet_attributes.uuid="5aed2dde-584d-4b20-b481-1dc8d1c9d043"'
