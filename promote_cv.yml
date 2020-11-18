@@ -8,6 +8,7 @@
       username: "{{ sat_user }}"
       password: "{{ sat_password }}"
       server_url: "https://{{ sat_url }}"
+      validate_certs: no
       content_view: "{{ cv_name }}"
       organization: "pharriso"
       current_lifecycle_environment: Dev
