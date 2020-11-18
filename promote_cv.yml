@@ -1,0 +1,15 @@
+---
+
+- hosts: localhost
+  connection: local
+  tasks:
+  - name: "Ensure content view version in Test is also in Pre Prod"
+    redhat.satellite.content_view_version:
+      username: "{{ sat_reg_user }}"
+      password: "{{ sat_reg_passwd }}"
+      server_url: "https://{{ sat_server }}"
+      content_view: "rhel8"
+      organization: "pharriso"
+      current_lifecycle_environment: Dev
+      lifecycle_environments:
+      - Prod
