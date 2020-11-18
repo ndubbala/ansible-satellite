@@ -5,9 +5,9 @@
   tasks:
   - name: "Ensure content view version in Test is also in Pre Prod"
     redhat.satellite.content_view_version:
-      username: "{{ sat_reg_user }}"
-      password: "{{ sat_reg_passwd }}"
-      server_url: "https://{{ sat_server }}"
+      username: "{{ sat_user }}"
+      password: "{{ sat_password }}"
+      server_url: "https://{{ sat_url }}"
       content_view: "{{ cv_name }}"
       organization: "pharriso"
       current_lifecycle_environment: Dev
